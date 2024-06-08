@@ -1,36 +1,62 @@
-{% load static %}
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banking Management System</title>
-    <link rel="stylesheet"href="{% static 'css/style.css' %}">
+    <title>Bank Management System</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>Welcome to XYZ Bank</h1>
+        <div class="header-container">
+            <div class="bank-name">Your Bank Name</div>
+            <div class="contact-details">
+                <p>Email: contact@yourbank.com</p>
+                <p>Address: 123 Bank Street, City, Country</p>
+            </div>
+        </div>
+        <nav id="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact" id="contact-link">Contact Us</a></li>
+                <li><a href="/login">Sign In</a></li>
+                <li><a href="/signup">Sign Up</a></li>
+
+            </ul>
+        </nav>
     </header>
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">Login/Signup</a></li>
-        </ul>
-    </nav>
     <main>
-        <section>
-            <h2>Our Services</h2>
-            <p>Manage your bank accounts, view transaction history, apply for loans, and much more.</p>
+        <section id="home">
+            <h1>Welcome to Your Bank</h1>
+            <p>Your trusted partner in financial services.</p>
         </section>
-        <section>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Information about the bank.</p>
+        </section>
+        <section id="services">
+            <h2>Our Services</h2>
+            <p>Details of the services offered by the bank.</p>
+        </section>
+        <section id="contact">
             <h2>Contact Us</h2>
-            <p>For any queries, please contact our support team at support@xyzbank.com.</p>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea><br>
+                <button type="submit">Send</button>
+            </form>
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 XYZ Bank. All rights reserved.</p>
+        <p>&copy; 2024 Your Bank. All rights reserved.</p>
     </footer>
 </body>
 </html>

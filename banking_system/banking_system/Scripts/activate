@@ -35,7 +35,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="D:\Phyton\Banking_System\banking_system\banking_system"
+VIRTUAL_ENV="D:\Phyton\Banking_System\banking_system\Banking_System"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
@@ -52,9 +52,9 @@ fi
 
 if [ -z "${VIRTUAL_ENV_DISABLE_PROMPT:-}" ] ; then
     _OLD_VIRTUAL_PS1="${PS1:-}"
-    PS1="(banking_system) ${PS1:-}"
+    PS1="(Banking_System) ${PS1:-}"
     export PS1
-    VIRTUAL_ENV_PROMPT="(banking_system) "
+    VIRTUAL_ENV_PROMPT="(Banking_System) "
     export VIRTUAL_ENV_PROMPT
 fi
 
