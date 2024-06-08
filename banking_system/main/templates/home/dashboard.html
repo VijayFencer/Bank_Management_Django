@@ -1,0 +1,32 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#update">Update</a></li>
+                <li><a href="#transaction">Transaction</a></li>
+                <li><a href="#thistory" id="contact-link">Transaction History</a></li>
+                <li><a href="/logout">Logout</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <div class="container" id="dashboard">
+        <div class="user-info">
+            <h2>Welcome, {{ user.Customer_name }}!</h2>
+            <p>Email: {{ user.email_customer }}</p>
+            <p>Gender: {% if user.gender == 'M' %}Male{% else %}Female{% endif %}</p>
+            <p>Balance: {{ user.balance }}</p>
+            <p>Phone Number: {{user.phone_number}}</p>
+        </div>
+    </div>
+</body>
+</html>
