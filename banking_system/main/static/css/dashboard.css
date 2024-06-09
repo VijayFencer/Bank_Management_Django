@@ -164,3 +164,36 @@ nav ul li a:hover {
 i{
     color:#000;
 }
+
+.transaction-history {
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-history h2 {
+    text-align: center;
+}
+
+.transaction-history table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.transaction-history th, .transaction-history td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.transaction-history tr.sent {
+    background-color: #f8d7da;
+}
+
+.transaction-history tr.received {
+    background-color: #d4edda;
+}

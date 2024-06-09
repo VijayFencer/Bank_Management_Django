@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from main.models import Customer,Transaction
 from django.contrib.auth import logout
 from django.contrib import messages
+from decimal import Decimal
 
 def logout_view(request):
     logout(request)
@@ -81,7 +82,7 @@ def create_transaction(request):
         if request.method == 'POST':
             sender_id = request.user.id
             receiver_id = request.POST.get('receiver_id')
-            amount = float(request.POST.get('amount'))
+            amount = Decimal(request.POST.get('amount'))
 
             sender = Customer.objects.get(id=sender_id)
             try:
@@ -92,6 +93,12 @@ def create_transaction(request):
             if sender.id==receiver.id:
                 messages.error(request, 'Not possible to transfer for same account.')
                 return redirect('dashboard')
+            if receiver.id==1:
+                messages.error(request, 'Not possible to transfer for this account.')
+                return redirect('dashboard')
+            if amount<100:
+                messages.error(request, 'Minimum amount to transfer is 100.')
+                return redirect('dashboard')       
             if sender.balance - amount >= 500:
                 sender.balance -= amount
                 sender.save()
@@ -109,6 +116,25 @@ def create_transaction(request):
                 return redirect('dashboard')  
             else:
                 messages.error(request, 'Insufficient balance. Minimum balance of 500 must be maintained.')
+                return redirect('dashboard')
+    else:
+        error="Login Required"
+        messages.error(request, error)
+        return redirect('login')
+
+
+def trans_hist(request):
+    if request.user.is_authenticated:
+        user = request.user  
+        sent_transactions = Transaction.objects.filter(sender=user)
+        received_transactions = Transaction.objects.filter(receiver=user)
+        
+        transactions = sorted(
+            list(sent_transactions) + list(received_transactions),
+            key=lambda x: x.date,
+            reverse=True
+        )
+        return render(request, 'home/dashboard.html', {'user': user,'transactions':transactions})
     else:
         error="Login Required"
         messages.error(request, error)

@@ -13,7 +13,7 @@
                 <li><a href="#dashboard">Dashboard</a></li>
                 <li><a href="#update">Update</a></li>
                 <li><a href="#transaction">Transaction</a></li>
-                <li><a href="#thistory" id="contact-link">Transaction History</a></li>
+                <li><a href="/transaction_history" id="contact-link">Transaction History</a></li>
                 <li><a href="/logout">Logout</a></li>
             </ul>
         </nav>
@@ -78,6 +78,33 @@
             </form>
         </div>
     </div>
+    {% if transactions %}
+    <div class="transaction-history">
+        <h2>Transaction History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Sender</th>
+                    <th>Receiver</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaction in transactions %}
+                    <tr class="{% if transaction.sender.Customer_name == user.Customer_name %}sent{% else %}received{% endif %}">
+                        <td>{{ transaction.transaction_id }}</td>
+                        <td>{{ transaction.sender.Customer_name }}</td>
+                        <td>{{ transaction.receiver.Customer_name }}</td>
+                        <td>{{ transaction.amount }}</td>
+                        <td>{{ transaction.date }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {%endif%}
     <script>
         setTimeout(function() {
             var messages = document.querySelectorAll('.alert');

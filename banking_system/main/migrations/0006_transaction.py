@@ -4,7 +4,16 @@ import django.db.models.deletion
 from django.conf import settings
 from django.db import migrations, models
 
+def add_unique_constraint(apps, schema_editor):
+    Customer = apps.get_model('main', 'Customer')
+    schema_editor.execute(
+        'ALTER TABLE main_customer ADD CONSTRAINT main_customer_Customer_name_d2d114d5_uniq UNIQUE (Customer_name);'
+    )
 
+def remove_unique_constraint(apps, schema_editor):
+    schema_editor.execute(
+        'ALTER TABLE main_customer DROP INDEX main_customer_Customer_name_d2d114d5_uniq;'
+    )
 class Migration(migrations.Migration):
 
     dependencies = [
