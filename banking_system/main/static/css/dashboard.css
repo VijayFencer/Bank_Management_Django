@@ -1,3 +1,4 @@
+/* Container styling */
 .container {
     width: 50%;
     margin: auto;
@@ -6,15 +7,33 @@
     border-radius: 10px;
     background-color: #f9f9f9;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
+
+/* User info styling */
 .user-info {
     margin-bottom: 20px;
 }
+
 .user-info h2 {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
+.user-info p {
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+    margin: 10px 0;
+}
 
+.user-info i {
+    margin-right: 10px;
+    
+}
+
+/* Navbar styling */
 nav {
     background-color: #388E3C;
     position: sticky;
@@ -26,6 +45,8 @@ nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
+    padding: 0;
+    margin: 0;
 }
 
 nav ul li {
@@ -43,6 +64,103 @@ nav ul li a {
 nav ul li a:hover {
     background-color: #2E7D32;
 }
+
 .hide-navbar {
     display: none;
+}
+
+
+.user-info, .update-form {
+    margin-bottom: 20px;
+}
+
+.user-info h2, .update-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.user-info p, .update-form label {
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.user-info i, .update-form i ,.transaction-form{
+    margin-right: 10px;
+}
+
+.update-form input, .update-form select {
+    width: calc(100% - 30px);
+    padding: 10px;
+    margin-left: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Messages styling */
+.messages {
+    width: 50%;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.alert {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.alert-success {
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+
+.alert-error {
+    background-color: #f2dede;
+    color: #a94442;
+}
+
+
+.transaction-form {
+    margin-top: 20px;
+}
+
+.transaction-form h2 {
+    margin-bottom: 20px;
+}
+
+.transaction-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.transaction-form input,
+.transaction-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.transaction-form button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #388E3C;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.transaction-form button:hover {
+    background-color: #2E7D32;
+}
+
+i{
+    color:#000;
 }
