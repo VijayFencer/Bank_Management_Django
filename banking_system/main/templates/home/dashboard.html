@@ -1,0 +1,90 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#update">Update</a></li>
+                <li><a href="#transaction">Transaction</a></li>
+                <li><a href="#thistory" id="contact-link">Transaction History</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <div class="container" id="dashboard">
+        <div class="user-info">
+            <h2>Welcome, {{ user.Customer_name }}!</h2>
+            <p><i class="fas fa-user"></i> First Name: {{ user.first_name }}</p>
+            <p><i class="fas fa-user"></i> Last Name: {{ user.last_name }}</p>
+            <p><i class="fas fa-envelope"></i> Email: {{ user.email_customer }}</p>
+            <p><i class="fas fa-venus-mars"></i> Gender: {% if user.gender == 'M' %}Male{% else %}Female{% endif %}</p>
+            <p><i class="fas fa-wallet"></i> Balance: {{ user.balance }}</p>
+            <p><i class="fas fa-phone"></i> Phone Number: {{ user.phone_number }}</p>
+        </div>
+    </div>
+        <div class="container" id="update">
+            <div class="update-form">
+                <h2>Update Your Details</h2>
+                <form method="post" action="/update_user">
+                    {% csrf_token %}
+                    <label for="first_name"><i class="fas fa-user"></i> First Name:</label>
+                    <input type="text" id="first_name" name="first_name" value="{{ user.first_name }}" required>
+                    
+                    <label for="last_name"><i class="fas fa-user"></i> Last Name:</label>
+                    <input type="text" id="last_name" name="last_name" value="{{ user.last_name }}" required>
+                    
+                    <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" id="email" name="email" value="{{ user.email_customer }}" required>
+                    
+                    <label for="gender"><i class="fas fa-venus-mars"></i> Gender:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="M" {% if user.gender == 'M' %}selected{% endif %}>Male</option>
+                        <option value="F" {% if user.gender == 'F' %}selected{% endif %}>Female</option>
+                    </select>
+                    
+                    <label for="phone_number"><i class="fas fa-phone"></i> Phone Number:</label>
+                    <input type="text" id="phone_number" name="phone_number" value="{{ user.phone_number }}" required>
+                    
+                    <button type="submit" style="margin-top: 20px; padding: 10px 20px; background-color: #388E3C; color: #fff; border: none; border-radius: 5px;">Update</button>
+                </form>
+            </div>
+    </div>
+    <div class="container" id="transaction">
+        <div class="transaction-form">
+            <h2>Create a New Transaction</h2>
+            <form method="post" action="/create_transaction">
+                {% csrf_token %}
+                <label for="receiver_id"><i class="fas fa-user"></i> Receiver ID:</label>
+                <input type="text" id="receiver_id" name="receiver_id" required>
+                
+                <label for="amount"><i class="fas fa-money-bill"></i> Amount:</label>
+                <input type="number" id="amount" name="amount" required min="0">
+                
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        setTimeout(function() {
+            var messages = document.querySelectorAll('.alert');
+            messages.forEach(function(message) {
+                message.style.display = 'none';
+            });
+        }, 10000); 
+    </script>
+</body>
+</html>
