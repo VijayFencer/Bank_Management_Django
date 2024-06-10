@@ -7,12 +7,19 @@ from main.models import Customer,Transaction
 from django.contrib.auth import logout
 from django.contrib import messages
 from decimal import Decimal
+from django.views.decorators.cache import cache_control
+
 
 def logout_view(request):
-    logout(request)
-    return redirect('home')
+    if request.user.is_authenticated:
+        logout(request)
+        return redirect('home')
+    else:
+      error="Login Required"
+      messages.error(request, error)
+      return redirect('login')
 
-
+@cache_control(no_cache=True, no_store=True, must_revalidate=True)
 def dashboard(request):
    if request.user.is_authenticated:
     user = request.user
@@ -44,6 +51,7 @@ def login_view(request):
         if user is not None:
             auth_login(request,user)
             messages.success(request, 'Login successfully!')
+            request.session['user_id'] = user.id
 
             return redirect('dashboard')  
         else:
@@ -53,7 +61,7 @@ def login_view(request):
         return render(request, 'home/login.html', {'next': next_page})
     return render(request, 'home/login.html', {'error': error})
 
-
+@cache_control(no_cache=True, no_store=True, must_revalidate=True)
 def update_user(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
@@ -76,7 +84,7 @@ def update_user(request):
      error="Login Required"
      messages.error(request, error)
      return redirect('login')
-
+@cache_control(no_cache=True, no_store=True, must_revalidate=True)
 def create_transaction(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
@@ -122,7 +130,7 @@ def create_transaction(request):
         messages.error(request, error)
         return redirect('login')
 
-
+@cache_control(no_cache=True, no_store=True, must_revalidate=True)
 def trans_hist(request):
     if request.user.is_authenticated:
         user = request.user  
