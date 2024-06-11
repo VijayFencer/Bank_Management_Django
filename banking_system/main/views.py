@@ -84,6 +84,7 @@ def update_user(request):
      error="Login Required"
      messages.error(request, error)
      return redirect('login')
+
 @cache_control(no_cache=True, no_store=True, must_revalidate=True)
 def create_transaction(request):
     if request.user.is_authenticated:
