@@ -8,6 +8,8 @@ from django.contrib.auth import logout
 from django.contrib import messages
 from decimal import Decimal
 from django.views.decorators.cache import cache_control
+from django.contrib.auth.hashers import check_password
+from django.db import connection
 
 
 def logout_view(request):
@@ -39,6 +41,21 @@ def authenticat(username=None, password=None):
         user = Customer.objects.get(Customer_name=username)
         if user.password==password:
             return user
+    except Customer.DoesNotExist:
+        return None
+    
+def authenticatee(username=None, password=None):
+    try:
+        table_name = Customer._meta.db_table
+        with connection.cursor() as cursor:
+            cursor.execute(f"SELECT id, password FROM {table_name} WHERE Customer_name = %s", [username])
+            row = cursor.fetchone()
+        
+        if row is not None:
+            user_id, db_password = row
+            if password==db_password:
+                user = Customer.objects.get(id=user_id)
+                return user
     except Customer.DoesNotExist:
         return None
 

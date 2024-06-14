@@ -1,3 +1,46 @@
+/* Navbar styling */
+nav {
+    background-color: #388E3C;
+    position: fixed; /* Change from sticky to fixed */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    border-radius: 20px;
+}
+
+nav ul li a:hover {
+    background-color: #2E7D32;
+}
+
+.hide-navbar {
+    display: none;
+}
+
+/* Add top padding to the body to prevent content from being hidden behind the navbar */
+body {
+    padding-top: 60px; /* Adjust based on the height of your navbar */
+}
+
 /* Container styling */
 .container {
     width: 50%;
@@ -30,46 +73,9 @@
 
 .user-info i {
     margin-right: 10px;
-    
 }
 
-/* Navbar styling */
-nav {
-    background-color: #388E3C;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    display: block;
-    border-radius: 20px;
-}
-
-nav ul li a:hover {
-    background-color: #2E7D32;
-}
-
-.hide-navbar {
-    display: none;
-}
-
-
+/* User info and update form styling */
 .user-info, .update-form {
     margin-bottom: 20px;
 }
@@ -86,7 +92,7 @@ nav ul li a:hover {
     margin: 10px 0;
 }
 
-.user-info i, .update-form i ,.transaction-form{
+.user-info i, .update-form i, .transaction-form {
     margin-right: 10px;
 }
 
@@ -121,7 +127,6 @@ nav ul li a:hover {
     background-color: #f2dede;
     color: #a94442;
 }
-
 
 .transaction-form {
     margin-top: 20px;
@@ -161,8 +166,8 @@ nav ul li a:hover {
     background-color: #2E7D32;
 }
 
-i{
-    color:#000;
+i {
+    color: #000;
 }
 
 .transaction-history {

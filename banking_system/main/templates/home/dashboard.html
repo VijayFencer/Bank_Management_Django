@@ -10,6 +10,7 @@
     <header>
         <nav id="navbar">
             <ul>
+                <li><a style="font-weight: bolder;">Welcome, {{user.Customer_name}}</a></li>
                 <li><a href="#dashboard">Dashboard</a></li>
                 <li><a href="#update">Update</a></li>
                 <li><a href="#transaction">Transaction</a></li>
@@ -28,11 +29,15 @@
     <div class="container" id="dashboard">
         <div class="user-info">
             <h2>Welcome, {{ user.Customer_name }}!</h2>
+            <p><i class="fas fa-user"></i> User ID: {{ user.id }}</p>
+
             <p><i class="fas fa-user"></i> First Name: {{ user.first_name }}</p>
             <p><i class="fas fa-user"></i> Last Name: {{ user.last_name }}</p>
             <p><i class="fas fa-envelope"></i> Email: {{ user.email_customer }}</p>
             <p><i class="fas fa-venus-mars"></i> Gender: {% if user.gender == 'M' %}Male{% else %}Female{% endif %}</p>
             <p><i class="fas fa-wallet"></i> Balance: {{ user.balance }}</p>
+            <p><i class="fas fa-wallet"></i> Branch: {{ user.branch_name }}</p>
+
             <p><i class="fas fa-phone"></i> Phone Number: {{ user.phone_number }}</p>
         </div>
     </div>
