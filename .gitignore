@@ -1,3 +1,5 @@
 .hintric
 pyvenv.cfg
-./Lib
+Lib/
+
+__pycache__/
