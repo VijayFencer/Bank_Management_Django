@@ -36,7 +36,11 @@ To run this project locally, follow these steps:
    ```sh
    python manage.py makemigrate
    ```
-5. open your web browser and visit:
+5. Run server:
+   ```sh
+   python manage.py runserver
+   ```
+6. open your web browser and visit:
    ```sh
    http://localhost:8000/
    ```
