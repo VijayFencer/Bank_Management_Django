@@ -45,6 +45,43 @@ To run this project locally, follow these steps:
    http://localhost:8000/
    ```
 
+## **Screenshots**
+
+<br>
+
+1.**Home Page**
+
+  <img src="./Screenshots/Home_Page.jpeg" alt="Home Page" />
+
+
+<br>
+
+2.**Login Page**
+
+<img src="./Screenshots/Login_Page.jpeg" alt="Home Page" />
+
+
+<br>
+
+3.**User Dashboard**
+
+<img src="./Screenshots/User_Dashboard.jpeg" alt="Dashboard" />
+
+<br>
+
+4.**Transaction History**
+
+<img src="./Screenshots/Transaction_History.png" alt="Transaction History" />
+
+<br>
+
+5.**Database Schema**
+
+<img src="./Screenshots/Database Schema.png" alt="Database Schema" />
+
+<br>
+
+
 ## Authors
 
 - [**Vigneshwaran**](https://github.com/vigneshwaranbalamurugan)
