@@ -47,7 +47,7 @@ To run this project locally, follow these steps:
 
 ## Authors
 
-- Vigneshwaran[https://github.com/vigneshwaranbalamurugan]
-- Vijay Bharath[https://github.com/VijayFencer]
-- Shriraam M K S[https://github.com/Shriraam-6219]
+- [**Vigneshwaran**](https://github.com/vigneshwaranbalamurugan)
+- [**Vijay Bharath**](https://github.com/VijayFencer)
+- [**Shriraam**](https://github.com/Shriraam-6219)
 
