@@ -81,6 +81,15 @@ To run this project locally, follow these steps:
 
 <br>
 
+6.**Admin Dashboard**
+<img src="./Screenshots/Admin_Dashboard.jpeg" alt="Admin Dashboard" />
+
+<br>
+
+7.**Add User**
+
+<img src="./Screenshots/Add_user.jpeg" alt="Add User" />
+
 
 ## Authors
 
