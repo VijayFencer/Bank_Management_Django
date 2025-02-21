@@ -1,7 +1,7 @@
 # Bank Management System
 
 This project is a Bank Management System implemented using Django, designed to facilitate efficient account management and transaction tracking.
-
+ 
 ## Features
 
 - **Secure Authentication**: Users can securely log in and manage their accounts.
